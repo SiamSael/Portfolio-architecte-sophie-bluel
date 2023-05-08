@@ -125,6 +125,35 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+.buttons {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 38px;
+	justify-content: center;
+}
+.buttons .button {
+	display: flex;
+	align-items: center;
+	height: 40px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	padding-left: 24px;
+	padding-right: 24px;
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	color:  #1D6154;
+	background-color: #FFFEF8;
+	cursor: pointer;
+}
+input[type=checkbox] {
+	display: none;
+}
+.button:has(> input[type=checkbox]:checked) {
+	background-color: #1D6154;
+	color: #FFFEF8;
+}
+
 .gallery {
 	width: 100%;
 	display: grid;
@@ -137,6 +166,11 @@ li:hover {
 	width: 100%;
 
 }
+
+.work-hidden {
+	display: none !important;
+} 
+
 #contact {
 	width: 50%;
 margin: auto;

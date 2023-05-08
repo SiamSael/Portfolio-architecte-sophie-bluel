@@ -11,13 +11,14 @@ export const works = {
     },
 
     genDomWork(work) {
-        document.querySelector(".gallery").appendChild(this.genDomWorkFigure(work.imageUrl, work.title));
+        document.querySelector(".gallery").appendChild(this.genDomWorkFigure(work.imageUrl, work.title, work.categoryId));
     },
     
-    genDomWorkFigure(imageUrl, title) {
+    genDomWorkFigure(imageUrl, title, categoryId) {
         const figure = document.createElement("figure");
         const img = this.genDomWorkFigureImg(imageUrl, title);
         const figcaption = this.genDomWorkFigureFigcaption(title);
+        figure.dataset.categoryid = categoryId
         figure.appendChild(img);
         figure.appendChild(figcaption);
         return figure;

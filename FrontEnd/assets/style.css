@@ -153,7 +153,6 @@ input[type=checkbox] {
 	background-color: #1D6154;
 	color: #FFFEF8;
 }
-
 .gallery {
 	width: 100%;
 	display: grid;
@@ -161,19 +160,17 @@ input[type=checkbox] {
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
 }
-
 .gallery img {
 	width: 100%;
 
 }
-
 .work-hidden {
 	display: none !important;
 } 
 
 #contact {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
 #contact > * {
 	text-align: center;
@@ -201,6 +198,37 @@ margin: auto;
 #contact textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.login {
+	margin-top: 104px;
+	margin-bottom: 40px;
+	display : flex;
+	justify-content: center;
+}
+#connection {
+	margin: auto;
+	margin-bottom: 304px;
+	display: flex;
+	flex-direction: column;
+}
+#connection label{
+	width: 384px;
+	margin :auto;
+}
+#connection #mail, 
+#connection #password{
+	height: 48px;
+	width: 384px;
+	margin : 8px auto;
+	margin-bottom: 24px;
+	background-color:  #FFFFFF;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	border: none;
+}
+.submit {
+	height: 48px;
+	width: 176px;
 }
 
 input[type="submit"]{

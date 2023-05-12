@@ -9,7 +9,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
-	<script type="module" src="./main.js"></script>
+	<script type="module" src="./login.js"></script>
 </head>
 <body>
     <header>
@@ -27,11 +27,11 @@
     <main>
         <section>
             <h2 class="login">Log In</h2>
-            <form id="connection" method="" action="" >
+            <form id="authentification" method="post" action="#" >
                 <label for="email">E-mail</label>
-                <input type="email" id="mail" name="mail" required>
+                <input type="email" id="email" name="email" value="" required>
                 <label for="password">Mot de Passe</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" value="" required>
                 <input class="submit" type="submit" value="Se connecter">
             </form>
         </section>
@@ -44,6 +44,5 @@
             </ul>
         </nav>
     </footer>
-
 </body>
 </html>

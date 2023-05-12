@@ -16,7 +16,7 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
+	margin: 0px;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
@@ -55,7 +55,7 @@ body {
 }
 header {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	margin: 50px 0
 }
 section {
@@ -84,6 +84,13 @@ h2{
 	font-size: 30px;
 	color: #1D6154
 }
+
+.fa-solid {
+	display: inline;
+	font-weight: 100 !important;
+	margin-right: 8px;
+}
+
 nav ul {
 	display: flex;
 	align-items: center;
@@ -98,38 +105,80 @@ nav li {
 li:hover {
 	color: #B1663C;
 }
+
+.headband {
+	width: 100%;
+	height: 56px;
+	display: flex; 
+	flex-direction: row;
+	background-color: black;
+	margin-bottom: -10px;
+	color: #FFFFFF;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+	font-style: normal;
+	font-family: 'Work Sans';
+	margin-right: 8px;
+}
+.publication-button {
+	border-radius: 60px;
+	height: 40px;
+	padding: 0px 24px;
+	margin: 0px 24px;
+}
+
 #introduction {
 	display: flex;
 	align-items: center;
+	margin-bottom: 136px;
 }
 #introduction figure {
-	flex: 1
+	flex: 1;
 }
 #introduction img {
 	display: block;
 	margin: auto;
 	width: 80%;
+	padding-bottom: 16px;
 }
-
 #introduction article {
-	flex: 1
+	flex: 1;
+	margin-right: 48px;
 }
 #introduction h2 {
 	margin-bottom: 1em;
 }
-
 #introduction p {
 	margin-bottom: 0.5em;
 }
+#introduction .modify {
+	display: flex;
+	margin: auto;
+	width: 80%;
+	color: black;
+}
+
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
 }
 
+#portfolio .modify {
+	color: black;
+	display: inline-flex;
+	margin-left: 32px;
+	font-size: 14px;
+	font-style: normal;
+	font-family: 'Work Sans';
+	font-weight: 100;
+}
+
 .buttons {
 	display: flex;
 	flex-wrap: wrap;
-	margin-bottom: 38px;
+	margin-bottom: 48px;
+	margin-top: 48px;
 	justify-content: center;
 }
 .buttons .button {
@@ -164,8 +213,11 @@ input[type=checkbox] {
 	width: 100%;
 
 }
-.work-hidden {
+.hidden {
 	display: none !important;
+} 
+.visibility-hidden {
+	visibility: hidden;
 } 
 
 #contact {
@@ -206,18 +258,19 @@ input[type=checkbox] {
 	display : flex;
 	justify-content: center;
 }
-#connection {
+
+#authentification {
 	margin: auto;
 	margin-bottom: 304px;
 	display: flex;
 	flex-direction: column;
 }
-#connection label{
+#authentification label{
 	width: 384px;
 	margin :auto;
 }
-#connection #mail, 
-#connection #password{
+#authentification input[type="email"], 
+#authentification input[type="password"] {
 	height: 48px;
 	width: 384px;
 	margin : 8px auto;
@@ -225,6 +278,11 @@ input[type=checkbox] {
 	background-color:  #FFFFFF;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 	border: none;
+}
+#authentification p.error {
+	color: red;
+	margin :auto;
+	font-size: 20px;
 }
 .submit {
 	height: 48px;

@@ -70,12 +70,12 @@ export const categories = {
     },
 
     showAllWorks() {
-        const allWorks = document.querySelectorAll('figure[data-categoryid].work-hidden');
+        const allWorks = document.querySelectorAll('figure[data-categoryid].hidden');
         allWorks.forEach(work => this.showWork(work));
     },
 
     showWork(work) {
-        work.classList.remove('work-hidden');
+        work.classList.remove('hidden');
     },   
 
     hideUnselectedCategories() {
@@ -89,6 +89,6 @@ export const categories = {
 
     hideWorks(categoryId) {
         const works = document.querySelectorAll('figure[data-categoryid="' + categoryId + '"]');
-        works.forEach(work => work.classList.add('work-hidden'));    
+        works.forEach(work => work.classList.add('hidden'));    
     },
 }

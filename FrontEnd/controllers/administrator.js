@@ -1,5 +1,5 @@
-import {api} from "../model/api.js";
 import { authentification } from  "./authentification.js"
+import { modal } from  "./modal.js"
 
 export const administrator = {
 
@@ -80,6 +80,10 @@ export const administrator = {
     showModifyWorksButton() {
         const modifyButton = this.createModifyButton();
         document.getElementById('portfolio').querySelector('h2').appendChild(modifyButton);
+        modifyButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.openModal();
+        });
     },
 
     createModifyButton() {

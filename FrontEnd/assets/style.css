@@ -30,6 +30,9 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	position: relative;
+	display: flex;
+	flex-direction: column;
 }
 ol, ul {
 	list-style: none;
@@ -54,9 +57,12 @@ body {
 	font-size: 14px;
 }
 header {
+	margin: 0px auto;
 	display: flex;
-	justify-content: space-around;
-	margin: 50px 0
+	justify-content: space-between;
+	width: 85%;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 section {
 	margin: 50px 0
@@ -129,22 +135,22 @@ li:hover {
 }
 
 #introduction {
+	margin: 0px auto;
+	width: 70%;
 	display: flex;
 	align-items: center;
 	margin-bottom: 136px;
 }
 #introduction figure {
+	margin: 0px auto;
 	flex: 1;
 }
 #introduction img {
-	display: block;
-	margin: auto;
-	width: 80%;
+	width: 85%;
 	padding-bottom: 16px;
 }
 #introduction article {
 	flex: 1;
-	margin-right: 48px;
 }
 #introduction h2 {
 	margin-bottom: 1em;
@@ -155,7 +161,6 @@ li:hover {
 #introduction .modify {
 	display: flex;
 	margin: auto;
-	width: 80%;
 	color: black;
 }
 
@@ -203,7 +208,8 @@ input[type=checkbox] {
 	color: #FFFEF8;
 }
 .gallery {
-	width: 100%;
+	margin: 0px auto;
+	width: 70%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 20px;
@@ -211,7 +217,6 @@ input[type=checkbox] {
 }
 .gallery img {
 	width: 100%;
-
 }
 .hidden {
 	display: none !important;
@@ -279,10 +284,13 @@ input[type=checkbox] {
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 	border: none;
 }
-#authentification p.error {
-	color: red;
-	margin :auto;
+p.error {
+	color: #D65353;
+	margin: 24px 0px;
 	font-size: 20px;
+	font-family: 'Syne';
+	font-weight: 400;
+	text-align: center;
 }
 .submit {
 	height: 48px;
@@ -298,8 +306,104 @@ input[type="submit"]{
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+	cursor: pointer;
 }
 
+.overlay {
+	background: rgba(0, 0, 0, 0.3);
+}
+.overlay #introduction img, 
+.overlay .gallery img,  
+.overlay #contact input,
+.overlay #contact textarea{
+	opacity: 0.3;
+}
+.modal {
+	z-index: 1000;
+	margin: 0px auto;
+	padding-left: 104px;
+	padding-right: 104px;
+	background-color: #FFFEF8;
+	position: absolute;
+	top: 600px;
+	align-self: center;
+}
+.fa-xmark {
+	border: none;
+	height: 8px;
+	width: 8px;
+	font-weight: 900 !important;
+	position: absolute;
+	right: 32px;
+	top: 32px;
+	cursor: pointer;
+}
+.fa-trash-can {
+	height: 8px;
+	width: 8px;
+	margin-right: 4px !important;
+	margin-top: 4px !important;
+}
+.modal-title {
+	text-align: center;
+	margin-top: 56px;
+	margin-bottom: 48px;
+	font-size: 26px;
+	font-style: normal;
+	font-family: 'Work Sans';
+	font-weight: 400;
+}
+.add-photo {
+	display: flex;
+	justify-content: center;
+	padding: 8px 48px;
+	width: 232px;
+	height: 36px;
+	border: none;
+}
+.del-gallery {
+	text-align: center;
+	margin-top: 32px;
+	margin-bottom: 48px;
+	font-size: 14px;
+	font-family: 'Syne';
+	font-weight: 400;
+	color: #D65353;
+}
+.gallery-modal {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-column-gap: 8px;
+	grid-row-gap: 8px;
+	border-bottom: 1px solid #B3B3B3;
+	padding-bottom: 48px;
+}
+.gallery-modal figure {
+	width: 80px;
+	position: relative;
+}
+.gallery-modal img {
+	height: 104px;
+	width: 80px;
+}
+.gallery-modal figcaption {
+	display: flex;
+	width: 80px !important;
+}
+.del-work {
+	background-color: black;
+	border-radius: 2px;
+	height: 20px;
+	width: 20px;
+	color: #FFFFFF;
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	right: 8px;
+	top: 8px;
+	cursor: pointer;
+}
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;

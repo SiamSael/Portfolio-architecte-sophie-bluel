@@ -58,7 +58,6 @@ export const modal = {
     },
 
     closeModal() {
-        console.log('ok');
         document.querySelector('.modal').classList.add('hidden')
         document.querySelector('body').classList.remove('overlay');
     },

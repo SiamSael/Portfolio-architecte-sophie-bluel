@@ -49,5 +49,18 @@ export const api = {
         return {
             status: response.status,
         };
+    },
+
+    async workAdd(work) {
+        let response = await fetch('http://localhost:5678/api/works', {
+            method:"POST",
+            headers: {
+                "Authorization": 'Bearer ' + this.getToken(),
+            },
+            body : work
+        });
+        return {
+            status: response.status,
+        };
     }
 }

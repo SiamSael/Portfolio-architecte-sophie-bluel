@@ -1,4 +1,5 @@
 import {api} from "../model/api.js";
+import { modal } from  "./modal.js"
 
 export const works = {
 
@@ -57,7 +58,6 @@ export const works = {
         imgDelete.addEventListener('click', (e) => {
             e.preventDefault();
             this.workDelete(e.target.closest('figure'));
-
         });
         return imgDelete;
     },
@@ -69,18 +69,24 @@ export const works = {
 
     handleDelete(result) {
         switch(result.status) {
-            case 401: this.formDelError('Erreur : Non autorisé'); break;
-            default: this.formDelError('Erreur : Inconnue');
+            case 200: modal.formValid(); break;
+            case 204: modal.formValid(); break;
+            case 401: modal.formError('Erreur : Non autorisé'); break;
+            default: modal.formError('Erreur : Inconnue');
         }
     }, 
 
-    formDelError(message) {
-        this.cleanError();
-        let domError = document.createElement('p');
-        domError.classList.add('error');  
-        domError.innerText = message;
-        document.querySelector(".modal").insertBefore(domError, document.querySelector(".modal").querySelector('input[type="submit"]'));
+    workAdd(work) {
+        api.workAdd(work).then(result => this.handleAdd(result))
     },
+
+    handleAdd(result) {
+        switch(result.status) {
+            case 201: modal.formValid(); break;
+            case 401: modal.formError('Erreur : Non autorisé'); break;
+            default: modal.formError('Erreur : Inconnue');
+        }
+    }, 
 
     cleanError() {
         let domError = document.querySelector('p.error');

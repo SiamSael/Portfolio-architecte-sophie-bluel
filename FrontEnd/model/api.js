@@ -35,7 +35,7 @@ export const api = {
 
     deleteToken() {
         window.localStorage.removeItem("authentification_token");
-    },
+    }, 
 
     async workDelete(workId) {
         let response = await fetch('http://localhost:5678/api/works/' + `${workId}`, {

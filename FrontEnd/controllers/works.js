@@ -1,21 +1,23 @@
-import {api} from "../model/api.js";
+import { api } from "../model/api.js";
 import { modal } from  "./modal.js"
 
 export const works = {
 
-    gallerySelector: null,
-
     showWorks() {
+        this.cleanWorks();
         api.getWorks().then(works => this.genDomWorks(works));
     },
 
+    cleanWorks() {
+        document.querySelectorAll('.gallery').forEach(gallery => gallery.innerHTML = '');
+    },
+
     genDomWorks(works) {
-        this.gallerySelector = document.querySelector(".modal") ? ".gallery-modal" : ".gallery";
         works.forEach(work => this.genDomWork(work));
     },
 
     genDomWork(work) {
-        document.querySelector(this.gallerySelector).appendChild(this.genDomWorkFigure(work.id, work.imageUrl, work.title, work.categoryId));
+        document.querySelectorAll('.gallery').forEach(gallery => gallery.appendChild(this.genDomWorkFigure(work.id, work.imageUrl, work.title, work.categoryId)));
     },
     
     genDomWorkFigure(id, imageUrl, title, categoryId) {
@@ -64,28 +66,53 @@ export const works = {
 
     workDelete(work) {
         let workId = work.dataset.id;
-        api.workDelete(workId).then(result => this.handleDelete(result));
+        api.workDelete(workId).then(result => {
+            if (this.handleDelete(result)) {
+                this.workDeleteFigures(workId);
+            }
+        });
+    },
+
+    workDeleteFigures(workId) {
+        const works = document.querySelectorAll(`figure[data-id="${workId}"]`);
+        works.forEach(work => work.remove())
     },
 
     handleDelete(result) {
         switch(result.status) {
-            case 200: modal.formValid(); break;
-            case 204: modal.formValid(); break;
-            case 401: modal.formError('Erreur : Non autorisé'); break;
-            default: modal.formError('Erreur : Inconnue');
+            case 200: 
+            case 204: 
+                modal.formValid(); 
+                return true;
+            case 401: 
+                modal.formError('Erreur : Non autorisé'); 
+                break;
+            default: 
+                modal.formError('Erreur : Inconnue');
         }
+        return false;
     }, 
 
-    workAdd(work) {
-        api.workAdd(work).then(result => this.handleAdd(result))
+    async workAdd(work) {
+        await api.workAdd(work).then(result => {
+            if (this.handleAdd(result)) {
+                return true;
+            }
+        })
     },
 
     handleAdd(result) {
         switch(result.status) {
-            case 201: modal.formValid(); break;
-            case 401: modal.formError('Erreur : Non autorisé'); break;
-            default: modal.formError('Erreur : Inconnue');
+            case 201: 
+                modal.formValid(); 
+                return true;
+            case 401: 
+                modal.formError('Erreur : Non autorisé'); 
+                break;
+            default: 
+                modal.formError('Erreur : Inconnue');
         }
+        return false;
     }, 
 
     cleanError() {

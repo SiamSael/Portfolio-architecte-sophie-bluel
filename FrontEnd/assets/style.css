@@ -396,7 +396,7 @@ input[type="submit"]{
 	font-weight: 400;
 	color: #D65353;
 }
-.gallery-modal {
+.modal .gallery {
 	width: 100%;
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
@@ -405,16 +405,16 @@ input[type="submit"]{
 	border-bottom: 1px solid #B3B3B3;
 	padding-bottom: 48px;
 }
-.gallery-modal figure {
+.modal .gallery figure {
 	width: 80px;
 	position: relative;
 }
-.gallery-modal img {
+.modal .gallery img {
 	height: 104px;
 	width: 80px;
 	object-fit: cover;
 }
-.gallery-modal figcaption {
+.modal .gallery figcaption {
 	display: flex;
 	width: 80px !important;
 }

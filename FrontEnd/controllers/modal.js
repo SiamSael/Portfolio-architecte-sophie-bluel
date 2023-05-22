@@ -1,4 +1,4 @@
-import {api} from "../model/api.js";
+import { api } from "../model/api.js";
 import { works } from  "./works.js"
 
 export const modal = {
@@ -78,7 +78,7 @@ export const modal = {
 
     createGallery(popUp) {
         const gallery = document.createElement('div');   
-        gallery.classList.add('gallery-modal');
+        gallery.classList.add('gallery');
         popUp.appendChild(gallery)
         works.showWorks();
     },
@@ -105,7 +105,7 @@ export const modal = {
     createAddModal(popUp) {
         this.createAddTitle(popUp);
         this.createReturnIcon(popUp);
-        this.removeGalerry(popUp); 
+        this.removeGallery(popUp); 
         this.createForm()
         this.removeButtonDelGalery(popUp)
     },
@@ -120,12 +120,12 @@ export const modal = {
         popUp.appendChild(returnIcon);
         returnIcon.addEventListener('click', (e) => {
             e.preventDefault();
-            this.openModal();;
+            this.openModal();
         })    
     },
 
-    removeGalerry(popUp) {
-        const gallery = popUp.querySelector('.gallery-modal'); 
+    removeGallery(popUp) {
+        const gallery = popUp.querySelector('.gallery'); 
         gallery.remove();        
     },
 
@@ -263,16 +263,22 @@ export const modal = {
         ButtonValidation.className = 'add-photo';
         ButtonValidation.setAttribute("type", "submit");
         ButtonValidation.setAttribute("value", "Valider");
+        this.submitForm(form);
+        form.appendChild(ButtonValidation);
+    },
+
+    submitForm(form) {
         form.addEventListener('submit', e => {
             e.preventDefault();
             this.cleanError();
             let areValidsFields = this.areValidsFields(); 
             if (areValidsFields) {
                 const formData = new FormData(form);
-                works.workAdd(formData);
+                works.workAdd(formData).then(() => {
+                    this.openModal();
+                });
             }
         })
-        form.appendChild(ButtonValidation);
     },
 
     cleanError() {

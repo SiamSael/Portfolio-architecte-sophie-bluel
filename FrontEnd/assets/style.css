@@ -114,6 +114,10 @@ li:hover {
 	color: #B1663C;
 }
 
+li:nth-of-type(3) { 
+	cursor: pointer !important;
+  }
+
 .headband {
 	width: 100%;
 	height: 56px;
@@ -169,7 +173,6 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
-
 #portfolio .modify {
 	color: black;
 	display: inline-flex;
@@ -178,6 +181,9 @@ li:hover {
 	font-style: normal;
 	font-family: 'Work Sans';
 	font-weight: 100;
+}
+#portfolio .modify p {
+	cursor: pointer;
 }
 
 .buttons {
@@ -231,6 +237,7 @@ input[type=checkbox] {
 #contact {
 	width: 50%;
 	margin: auto;
+	padding-top: 64px;
 }
 #contact > * {
 	text-align: center;
@@ -245,12 +252,14 @@ input[type=checkbox] {
 	display: flex;
 	flex-direction: column;
 }
-
 #contact input {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#contact input[type=submit] {
+	cursor: none;
 }
 #contact label {
 	margin: 2em 0 1em 0;

@@ -17,10 +17,13 @@ export const works = {
     },
 
     genDomWork(work) {
-        document.querySelectorAll('.gallery').forEach(gallery => gallery.appendChild(this.genDomWorkFigure(work.id, work.imageUrl, work.title, work.categoryId)));
+        document.querySelectorAll('.gallery').forEach(gallery => {
+            const isInModal = gallery.closest('.modal') !== null;
+            gallery.appendChild(this.genDomWorkFigure(work.id, work.imageUrl, work.title, work.categoryId, isInModal))
+        });
     },
     
-    genDomWorkFigure(id, imageUrl, title, categoryId) {
+    genDomWorkFigure(id, imageUrl, title, categoryId, isInModal) {
         const figure = document.createElement("figure");
         const img = this.genDomWorkFigureImg(imageUrl, title);
         const figcaption = this.genDomWorkFigureFigcaption(title);
@@ -28,7 +31,7 @@ export const works = {
         figure.dataset.categoryid = categoryId
         figure.appendChild(img);
         figure.appendChild(figcaption);
-        if (document.querySelector(".modal")) {
+        if (isInModal) {
             const figdelete = this.genDomWorkFigureDelete();
             figure.insertAdjacentElement("afterbegin", figdelete);
         }

@@ -26,7 +26,7 @@ export const works = {
     genDomWorkFigure(id, imageUrl, title, categoryId, isInModal) {
         const figure = document.createElement("figure");
         const img = this.genDomWorkFigureImg(imageUrl, title);
-        const figcaption = this.genDomWorkFigureFigcaption(title);
+        const figcaption = this.genDomWorkFigureFigcaption(title, isInModal);
         figure.dataset.id = id
         figure.dataset.categoryid = categoryId
         figure.appendChild(img);
@@ -45,10 +45,10 @@ export const works = {
         return img;
     },
 
-    genDomWorkFigureFigcaption(title) {
+    genDomWorkFigureFigcaption(title, isInModal) {
         const imgTitle = document.createElement("figcaption");
         imgTitle.innerText = `${title}`;
-        if (document.querySelector(".modal")) {
+        if (isInModal) {
             imgTitle.innerText = "éditer";
         }
         return imgTitle;
